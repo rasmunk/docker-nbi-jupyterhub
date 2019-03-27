@@ -14,9 +14,19 @@ RUN pip install --upgrade pip
 # Remote user authenticator with support for mount http header
 # SwarmSpawner with support for sshfs mount
 # dateutil for cull_idle_servers
-RUN pip install jhub-authenticators \
-    dockerspawner \
-    jhub-swarmspawner \
+RUN git clone https://github.com/rasmunk/jhub-authenticators.git \
+    --single-branch --branch devel \
+    && cd jhub-authenticators \
+    && pip install -r requirements.txt \
+    && python setup.py install
+
+RUN git clone https://github.com/rasmunk/SwarmSpawner.git \
+    --single-branch --branch devel \
+    && cd SwarmSpawner \
+    && pip install -r requirements.txt \
+    && python setup.py install
+
+RUN pip install dockerspawner \
     python-dateutil \
     flatten_dict
 
@@ -25,4 +35,4 @@ COPY pages $NEW_PAGES_DIR
 RUN cp -r $NEW_PAGES_DIR/templates/* $JHUB_DIR/templates/ \
     && cp -r $NEW_PAGES_DIR/static/* $JHUB_DIR/static/
 
-CMD ["jupyterhub", "-f", "/srv/jupyterhub/jupyter_config.py"]
+CMD jupyterhub
