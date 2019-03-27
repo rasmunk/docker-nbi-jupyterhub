@@ -1,4 +1,4 @@
-#!/bin/bash
-docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
-docker push "$IMAGE_NAME":"$IMAGE_VERS"
-docker push "$DOCKER_USERNAME"/jupyterhub:devel
+make build/"${IMAGE_NAME}" TAG="${COMMIT}"
+make build/"${IMAGE_NAME}" TAG="${RELEASE_VERS}"
+make push/"${IMAGE_NAME}" TAG="${COMMIT}"
+make push/"${IMAGE_NAME}" TAG="${RELEASE_VERS}"
