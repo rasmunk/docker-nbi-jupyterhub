@@ -1,4 +1,4 @@
-make build/"${IMAGE_NAME}" TAG="${COMMIT}"
-make build/"${IMAGE_NAME}" TAG="${RELEASE_VERS}"
-make push/"${IMAGE_NAME}" TAG="${COMMIT}"
-make push/"${IMAGE_NAME}" TAG="${RELEASE_VERS}"
+make build TAG="${COMMIT}"
+make build TAG="${RELEASE_VERS}"
+make push TAG="${COMMIT}"
+make push TAG="${RELEASE_VERS}"
