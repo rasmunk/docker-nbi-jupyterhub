@@ -11,6 +11,7 @@ env:
     - secure: UhSNFT2URRxmPqbsCOyT9ODxPa/w9Z9Za4invUKb8CrEW45puFHOimMLOloir5iXX1MaZ6iJ6g22ARL6F10Q5vfe5PC1NOoyXiKMwb5+jzed8XGtLoAuPttjxgolNNjhY9Pl5e05JyNXrxuqD8gOAoM3cED1cMYmRgpOHvmqhVZ4S7RE96mklBmKlzaYmCvdcYWAfenuStD9aunLagky7/0EG5204RpjT2kdD9QG1YuscVqJbwjZ1byyGzsTv/zjYF5be/2oC/HV41h+xz8nJW2hQii7F/NlTaUzO8Kv0h4PmKUmIbW0I4JBPK8LdC5zozm8mDCIy7K//wrVsl94bNawI9jVnfb/6IQDdpL3TsqOjT4/dXpR+Mx3goQu4C3teqZKD8N5s9TNJGlG+HS2UsQ22iNWyyklAgxJrxPKDSvLgpLkJx36bZl5fQ1lhJRAuJ3oGTlAg6uiXdFn3dILNk4egOp64bLG+ke3uWQ9bkApADBXnQCjGe/O3DT6OHtYAtFf/BtpR5c3fazcXXcITjY8iMwFHSFtQiznULi9Jm2g1iCWMlKTOstOxflJco3Dt5FCX+RSZvMua+Vy3t4RZj5H1NAFF+qXavzK6l804KBv7jne9ikku/CxMl2Q64xoWsWYmzVsBl7pVpgBQVVZBa96r/xNbuD80Z2TVnuMbdQ=
 
 script:
+  - make build
   - make test
 before_deploy:
   - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
