@@ -26,6 +26,11 @@ RUN git clone https://github.com/rasmunk/SwarmSpawner.git \
     && pip install -r requirements.txt \
     && python setup.py install
 
+RUN git clone https://github.com/rasmunk/ldap_hooks.git \
+    && cd ldap_hooks \
+    && pip install -r requirements.txt \
+    && python setup.py install
+
 RUN pip install dockerspawner \
     python-dateutil \
     flatten_dict
