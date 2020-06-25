@@ -1,5 +1,5 @@
 # Extension of jupyterhub
-FROM jupyterhub/jupyterhub:1.0.0
+FROM jupyterhub/jupyterhub:1.2
 MAINTAINER Rasmus Munk <rasmus.munk@nbi.ku.dk>
 
 RUN apt-get update && apt-get install --no-install-recommends -yq \
@@ -8,7 +8,7 @@ RUN apt-get update && apt-get install --no-install-recommends -yq \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-ENV JHUB_DIR=/opt/conda/share/jupyterhub
+ENV JHUB_DIR=/usr/local/share/jupyterhub
 ENV NEW_PAGES_DIR=/srv/jupyterhub/pages
 
 RUN pip install --upgrade pip
@@ -29,4 +29,4 @@ COPY pages $NEW_PAGES_DIR
 RUN cp -r $NEW_PAGES_DIR/templates/* $JHUB_DIR/templates/ \
     && cp -r $NEW_PAGES_DIR/static/* $JHUB_DIR/static/
 
-CMD ["jupyterhub", "-f", "/srv/jupyterhub/jupyter_config.py"]
+CMD ["jupyterhub"]

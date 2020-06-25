@@ -7,7 +7,7 @@ TAG=edge
 all: clean build test
 
 build:
-	docker build -t $(OWNER)/$(IMAGE):$(TAG) hub/
+	docker build -t $(OWNER)/$(IMAGE):$(TAG) ${ARGS} hub/
 
 clean:
 	docker rmi -f $(OWNER)/$(IMAGE):$(TAG)
